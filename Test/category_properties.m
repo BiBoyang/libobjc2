@@ -31,5 +31,12 @@ int main(int argc, char** argv)
 	prop = class_getProperty(test, "val2");
 	assert(prop);
 	assert(strcmp("Ti,R,D", property_getAttributes(prop)) == 0);
+#ifdef GS_RUNTIME_V2
+	test = object_getClass(test);
+	prop = class_getProperty(test, "val2");
+	assert(prop);
+	assert(strcmp("Ti,R,D", property_getAttributes(prop)) == 0);
+#endif
+
 }
 
